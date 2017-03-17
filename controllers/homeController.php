@@ -1,26 +1,31 @@
 <?php
+class homeController extends controller {
 
-/**
-* 
-*/
-class homeController extends controller
-{
-	// public function __construct(){
-	// 	parent::__construct();
-	// }
-	
-	public function index()
-    {
-		$fotos = new Fotos();
-        $dados['fotos'] = $fotos->getFotos();
+    public function __construct() {
+        parent::__construct();
 
-		$this->loadTemplate('home', $dados);
-	}
+        //instanciando model usuarios
+        $u = new usuarios();
+        //se usuario não tiver logado
+        // if (!$u->isLogged()) {
+        // 	header("Location: /twitter");
+        // }
 
-	public function sobre()
-    {
-		$dados = array();
-		$this->loadView('sobre', $dados);
-	}
+
+    }
+
+    public function index() {
+        $dados = array();
+
+
+        $this->loadTemplate('home', $dados);
+    }
+
+    public function teste() {
+        $dados = array();
+
+
+        echo "teste";
+    }
 
 }
